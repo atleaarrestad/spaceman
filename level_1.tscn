@@ -59,15 +59,6 @@ animations = [{
 
 [node name="Main" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 101
-texture_repeat = 2
-position = Vector2(0, -10)
-scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_hwfoa")
-frame_progress = 0.346404
-script = ExtResource("2_gxbqf")
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -91,3 +82,12 @@ texture_filter = 1
 scale = Vector2(1, 0.997558)
 texture = ExtResource("1_4rvgw")
 script = ExtResource("1_lol4o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Sprite"]
+z_index = 101
+texture_repeat = 2
+position = Vector2(0, -5.55994)
+scale = Vector2(0.569584, 0.555994)
+sprite_frames = SubResource("SpriteFrames_hwfoa")
+frame_progress = 0.346404
+script = ExtResource("2_gxbqf")
