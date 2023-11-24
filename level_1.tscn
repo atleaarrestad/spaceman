@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cm6l1v6erbqsy"]
+[gd_scene load_steps=15 format=3 uid="uid://cm6l1v6erbqsy"]
 
 [ext_resource type="Texture2D" uid="uid://v487j0ibub81" path="res://sprites/player/hull/Main Ship - Base - Full health.png" id="1_4rvgw"]
-[ext_resource type="Script" path="res://scroll.cs" id="1_hde5o"]
-[ext_resource type="Texture2D" uid="uid://bjhsaq0swq21p" path="res://sprites/background/space.png" id="2_41578"]
 [ext_resource type="Script" path="res://AnimatedSprite2D.cs" id="2_gxbqf"]
+[ext_resource type="Texture2D" uid="uid://ctf4mh0dhl2j0" path="res://sprites/background/Starry background  - Layer 01 - Solid colour.png" id="2_he3kc"]
+[ext_resource type="Script" path="res://scripts/background/ParallaxStars.cs" id="3_ggsm1"]
+[ext_resource type="Texture2D" uid="uid://biix3cql0gkh3" path="res://sprites/background/Starry background  - Layer 03 - Stars.png" id="3_m05ie"]
 [ext_resource type="Script" path="res://scripts/player/Player.cs" id="4_cpt3p"]
 [ext_resource type="Texture2D" uid="uid://citn6eg6vix8u" path="res://sprites/player/shields/Main Ship - Shields - Front and Side Shield.png" id="5_gt541"]
 
@@ -60,15 +61,30 @@ animations = [{
 [node name="Main" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_repeat = 1
-motion_mirroring = Vector2(0, 4000)
-script = ExtResource("1_hde5o")
+[node name="BackgroundTop" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(2.08165e-12, -180)
+texture = ExtResource("2_he3kc")
 
-[node name="Space" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_repeat = 2
-texture = ExtResource("2_41578")
+[node name="BackgroundBot" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("2_he3kc")
+offset = Vector2(2.08165e-12, 180)
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2.08165e-12, 720)
+script = ExtResource("3_ggsm1")
+
+[node name="StarsTop" type="Sprite2D" parent="ParallaxBackground/Stars"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("3_m05ie")
+offset = Vector2(2.08165e-12, -180)
+
+[node name="StarsBot" type="Sprite2D" parent="ParallaxBackground/Stars"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("3_m05ie")
+offset = Vector2(2.08165e-12, 180)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.275, 1.275)

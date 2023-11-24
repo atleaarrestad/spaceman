@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class scroll : ParallaxLayer
+public partial class ParallaxStars : ParallaxLayer
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -11,6 +11,6 @@ public partial class scroll : ParallaxLayer
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		this.MotionOffset += new Vector2(0, 5);
+		MotionOffset += new Vector2(0, 5);
 	}
 }
