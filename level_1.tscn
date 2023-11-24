@@ -1,11 +1,72 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm6l1v6erbqsy"]
+[gd_scene load_steps=14 format=3 uid="uid://cm6l1v6erbqsy"]
 
 [ext_resource type="Texture2D" uid="uid://v487j0ibub81" path="res://sprites/player/hull/Main Ship - Base - Full health.png" id="1_4rvgw"]
 [ext_resource type="Script" path="res://scroll.cs" id="1_hde5o"]
 [ext_resource type="Script" path="res://Player.cs" id="1_lol4o"]
 [ext_resource type="Texture2D" uid="uid://bjhsaq0swq21p" path="res://sprites/background/space.png" id="2_41578"]
+[ext_resource type="Script" path="res://AnimatedSprite2D.cs" id="2_gxbqf"]
+[ext_resource type="Texture2D" uid="uid://citn6eg6vix8u" path="res://sprites/player/shields/Main Ship - Shields - Front and Side Shield.png" id="5_gt541"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55smk"]
+atlas = ExtResource("5_gt541")
+region = Rect2(7, 13, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f407"]
+atlas = ExtResource("5_gt541")
+region = Rect2(71, 13, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auwab"]
+atlas = ExtResource("5_gt541")
+region = Rect2(135, 13, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4hkm"]
+atlas = ExtResource("5_gt541")
+region = Rect2(199, 13, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_calli"]
+atlas = ExtResource("5_gt541")
+region = Rect2(263, 13, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg3cu"]
+atlas = ExtResource("5_gt541")
+region = Rect2(327, 13, 50, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwfoa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55smk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f407")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auwab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4hkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_calli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg3cu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 101
+texture_repeat = 2
+position = Vector2(0, -10)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_hwfoa")
+frame_progress = 0.346404
+script = ExtResource("2_gxbqf")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -22,6 +83,7 @@ texture = ExtResource("2_41578")
 zoom = Vector2(1.275, 1.275)
 
 [node name="Player" type="Node2D" parent="."]
+z_index = 100
 scale = Vector2(1.75567, 1.80299)
 
 [node name="Sprite" type="Sprite2D" parent="Player"]
