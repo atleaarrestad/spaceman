@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm6l1v6erbqsy"]
+[gd_scene load_steps=5 format=3 uid="uid://cm6l1v6erbqsy"]
 
 [ext_resource type="Texture2D" uid="uid://v487j0ibub81" path="res://sprites/player/hull/Main Ship - Base - Full health.png" id="1_4rvgw"]
+[ext_resource type="Script" path="res://scroll.cs" id="1_hde5o"]
 [ext_resource type="Script" path="res://Player.cs" id="1_lol4o"]
+[ext_resource type="Texture2D" uid="uid://bjhsaq0swq21p" path="res://sprites/background/space.png" id="2_41578"]
 
 [node name="Main" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_repeat = 1
+motion_mirroring = Vector2(0, 4000)
+script = ExtResource("1_hde5o")
+
+[node name="Space" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("2_41578")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.275, 1.275)
