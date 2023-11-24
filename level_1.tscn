@@ -1,11 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://cm6l1v6erbqsy"]
 
+[ext_resource type="Texture2D" uid="uid://v487j0ibub81" path="res://sprites/player/hull/Main Ship - Base - Full health.png" id="1_4rvgw"]
 [ext_resource type="Script" path="res://Player.cs" id="1_lol4o"]
-[ext_resource type="Texture2D" uid="uid://dcruu50e8y2x" path="res://spaceship.png" id="1_xhvf5"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(468, 279)
-texture = ExtResource("1_xhvf5")
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.275, 1.275)
+
+[node name="Player" type="Node2D" parent="."]
+scale = Vector2(1.75567, 1.80299)
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+texture_filter = 1
+scale = Vector2(1, 0.997558)
+texture = ExtResource("1_4rvgw")
 script = ExtResource("1_lol4o")
