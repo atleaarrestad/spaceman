@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://v487j0ibub81" path="res://sprites/player/hull/Main Ship - Base - Full health.png" id="1_4rvgw"]
 [ext_resource type="Script" path="res://scroll.cs" id="1_hde5o"]
-[ext_resource type="Script" path="res://Player.cs" id="1_lol4o"]
 [ext_resource type="Texture2D" uid="uid://bjhsaq0swq21p" path="res://sprites/background/space.png" id="2_41578"]
 [ext_resource type="Script" path="res://AnimatedSprite2D.cs" id="2_gxbqf"]
+[ext_resource type="Script" path="res://scripts/player/Player.cs" id="4_cpt3p"]
 [ext_resource type="Texture2D" uid="uid://citn6eg6vix8u" path="res://sprites/player/shields/Main Ship - Shields - Front and Side Shield.png" id="5_gt541"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55smk"]
@@ -76,14 +76,13 @@ zoom = Vector2(1.275, 1.275)
 [node name="Player" type="Node2D" parent="."]
 z_index = 100
 scale = Vector2(1.75567, 1.80299)
+script = ExtResource("4_cpt3p")
 
-[node name="Sprite" type="Sprite2D" parent="Player"]
+[node name="Ship" type="Sprite2D" parent="Player"]
 texture_filter = 1
-scale = Vector2(1, 0.997558)
 texture = ExtResource("1_4rvgw")
-script = ExtResource("1_lol4o")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Sprite"]
+[node name="Shield" type="AnimatedSprite2D" parent="Player/Ship"]
 z_index = 101
 texture_repeat = 2
 position = Vector2(0, -5.55994)
