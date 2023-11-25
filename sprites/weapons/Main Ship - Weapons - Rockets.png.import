@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jci6i7gpgfb3"
-path="res://.godot/imported/Main Ship - Weapons - Auto Cannon.png-3a80c478f70eb0ad231449c798eb59a5.ctex"
+uid="uid://csaj4v7cecjq6"
+path="res://.godot/imported/Main Ship - Weapons - Rockets.png-4c7b27f988f7c75ea6bff3e60f854b6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/weapons/Main Ship - Weapons - Auto Cannon.png"
-dest_files=["res://.godot/imported/Main Ship - Weapons - Auto Cannon.png-3a80c478f70eb0ad231449c798eb59a5.ctex"]
+source_file="res://sprites/weapons/Main Ship - Weapons - Rockets.png"
+dest_files=["res://.godot/imported/Main Ship - Weapons - Rockets.png-4c7b27f988f7c75ea6bff3e60f854b6e.ctex"]
 
 [params]
 

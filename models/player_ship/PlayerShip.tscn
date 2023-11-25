@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://components/ShipMoveComponent.cs" id="2_ft5dy"]
 [ext_resource type="Script" path="res://components/ShipMoveInputComponent.cs" id="3_4tyh7"]
 [ext_resource type="Resource" uid="uid://wjj3p7xqr04" path="res://models/player_ship/ShipMoveStats.tres" id="4_06ck3"]
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://doyxtfxgxmejq" path="res://sprites/player/engines/Main Ship - Engines - Base Engine.png" id="4_xkame"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jr37t"]
@@ -16,6 +18,14 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+=======
+[ext_resource type="Script" path="res://components/EquipmentContainer.cs" id="5_0cmav"]
+[ext_resource type="PackedScene" uid="uid://dt264t7l40a2n" path="res://models/weapons/machine_gun/MachineGun.tscn" id="6_eqb03"]
+>>>>>>> Stashed changes
+=======
+[ext_resource type="Script" path="res://components/EquipmentContainer.cs" id="5_0cmav"]
+[ext_resource type="PackedScene" uid="uid://dt264t7l40a2n" path="res://models/weapons/machine_gun/MachineGun.tscn" id="6_eqb03"]
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4gms"]
 atlas = ExtResource("1_v7axu")
@@ -44,6 +54,8 @@ script = ExtResource("3_4tyh7")
 MoveComponent = NodePath("../ShipMoveComponent")
 MoveStats = ExtResource("4_06ck3")
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [node name="Engine" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.08165e-12, 4)
 sprite_frames = SubResource("SpriteFrames_jr37t")
@@ -52,3 +64,13 @@ sprite_frames = SubResource("SpriteFrames_jr37t")
 sprite_frames = SubResource("SpriteFrames_xp23u")
 animation = &"center"
 autoplay = "center"
+=======
+[node name="EquipmentContainer" type="Node" parent="."]
+script = ExtResource("5_0cmav")
+WeaponScene = ExtResource("6_eqb03")
+>>>>>>> Stashed changes
+=======
+[node name="EquipmentContainer" type="Node" parent="."]
+script = ExtResource("5_0cmav")
+WeaponScene = ExtResource("6_eqb03")
+>>>>>>> Stashed changes

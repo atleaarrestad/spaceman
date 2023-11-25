@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jc5oe78v5g36"
-path="res://.godot/imported/Main Ship - Weapons - Big Space Gun.png-88f15e82d6e0df356662d1abe55a8be4.ctex"
+path="res://.godot/imported/Main Ship - Weapons - Big Space Gun.png-ff462be2d7a82d1f236f5f39827974e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/weapons/Main Ship - Weapons - Big Space Gun.png"
-dest_files=["res://.godot/imported/Main Ship - Weapons - Big Space Gun.png-88f15e82d6e0df356662d1abe55a8be4.ctex"]
+source_file="res://sprites/weapons/Main Ship - Weapons - Big Space Gun.png"
+dest_files=["res://.godot/imported/Main Ship - Weapons - Big Space Gun.png-ff462be2d7a82d1f236f5f39827974e0.ctex"]
 
 [params]
 

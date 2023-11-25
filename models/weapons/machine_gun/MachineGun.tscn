@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://dt264t7l40a2n"]
+
+[ext_resource type="Texture2D" uid="uid://jci6i7gpgfb3" path="res://sprites/weapons/Main Ship - Weapons - Auto Cannon.png" id="1_phoy0"]
+[ext_resource type="Script" path="res://components/EquipmentComponent.cs" id="2_uku2h"]
+[ext_resource type="Resource" uid="uid://cyvwe2ja8jfix" path="res://models/weapons/machine_gun/MachineGunStats.tres" id="3_an8kw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyo1o"]
+atlas = ExtResource("1_phoy0")
+region = Rect2(8, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n36hu"]
+atlas = ExtResource("1_phoy0")
+region = Rect2(56, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m484a"]
+atlas = ExtResource("1_phoy0")
+region = Rect2(104, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6xyw"]
+atlas = ExtResource("1_phoy0")
+region = Rect2(152, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgapw"]
+atlas = ExtResource("1_phoy0")
+region = Rect2(200, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flfpr"]
+atlas = ExtResource("1_phoy0")
+region = Rect2(248, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwllk"]
+atlas = ExtResource("1_phoy0")
+region = Rect2(296, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2c0ni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyo1o")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyo1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n36hu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m484a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6xyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgapw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flfpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwllk")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[node name="MachineGun" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2c0ni")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.721485
+
+[node name="EquipmentComponent" type="Node" parent="."]
+script = ExtResource("2_uku2h")
+Stats = ExtResource("3_an8kw")

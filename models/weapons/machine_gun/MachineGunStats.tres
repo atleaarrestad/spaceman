@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EquipmentStats" load_steps=2 format=3 uid="uid://cyvwe2ja8jfix"]
+
+[ext_resource type="Script" path="res://components/EquipmentStats.cs" id="1_sxbts"]
+
+[resource]
+script = ExtResource("1_sxbts")
+Name = "Machine Gun"
+Cooldown = 1.0
+Damage = 1.0
