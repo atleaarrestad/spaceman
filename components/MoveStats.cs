@@ -6,5 +6,5 @@ using System;
 public partial class MoveStats : Resource
 {
 	[Export]
-	public int Speed = 100;
+	public float Speed = 100;
 }
