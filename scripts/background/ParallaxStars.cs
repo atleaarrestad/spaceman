@@ -24,7 +24,6 @@ public partial class ParallaxStars : ParallaxLayer
 	{
 		double frequency = 2 * Math.PI / numberOfPoints;
 		double value = Math.Sin(frameIndex * frequency);
-		//return 0.5 * (1 - value * 0.999); // Scaling the sinusoidal curve between 1 and 0.001
-		return value * 0.9999; // Scaling the sinusoidal curve between 1 and 0.001
+		return value;
 	}
 }
