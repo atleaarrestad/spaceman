@@ -22,11 +22,7 @@ public partial class EquipmentContainer : Node2D
 		WeaponNode = WeaponScene.Instantiate<Node2D>();
 		AddChild(WeaponNode);
 		WeaponNode.Position += Offset;
-
 		equipmentComponent = WeaponNode.GetNode<EquipmentComponent>("EquipmentComponent");
-		equipmentComponent.Fire();
-
-		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
