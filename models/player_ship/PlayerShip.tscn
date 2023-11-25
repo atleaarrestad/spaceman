@@ -55,6 +55,7 @@ sprite_frames = SubResource("SpriteFrames_xp23u")
 animation = &"center"
 autoplay = "center"
 
-[node name="EquipmentContainer" type="Node" parent="."]
+[node name="EquipmentContainer" type="Node2D" parent="."]
 script = ExtResource("6_nnp7q")
 WeaponScene = ExtResource("7_8vior")
+Offset = Vector2(0, -10)
