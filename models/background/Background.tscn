@@ -14,36 +14,43 @@
 position = Vector2(2.08165e-12, 2.08165e-12)
 rotation = 1.5708
 texture = ExtResource("1_hytxm")
-offset = Vector2(2.08165e-12, -140)
+centered = false
+offset = Vector2(2.08165e-12, -320)
 
 [node name="StaticBackground" type="Sprite2D" parent="ParallaxBackground/StaticBackground"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("1_hytxm")
-offset = Vector2(2.08165e-12, -500)
+centered = false
+offset = Vector2(2.08165e-12, -680)
 
 [node name="ParallaxWave" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(720, 5760)
+motion_mirroring = Vector2(2.08165e-12, 5760)
 script = ExtResource("2_sngbp")
 
 [node name="Wave" type="Sprite2D" parent="ParallaxBackground/ParallaxWave"]
 rotation = 1.5708
 texture = ExtResource("3_876ei")
-offset = Vector2(2.08165e-12, -140)
+centered = false
+offset = Vector2(2.08165e-12, -320)
 
 [node name="Wave" type="Sprite2D" parent="ParallaxBackground/ParallaxWave/Wave"]
 texture = ExtResource("3_876ei")
-offset = Vector2(2.08165e-12, -500)
+centered = false
+offset = Vector2(2.08165e-12, -680)
 
 [node name="ParallaxStars" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(2.08165e-12, 2.08165e-12)
-motion_mirroring = Vector2(720, 5760)
+motion_mirroring = Vector2(2.08165e-12, 5760)
 script = ExtResource("4_1dygy")
 
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/ParallaxStars"]
+modulate = Color(1, 1, 1, 0.498039)
 rotation = 1.5708
 texture = ExtResource("2_otugp")
-offset = Vector2(2.08165e-12, -140)
+centered = false
+offset = Vector2(2.08165e-12, -320)
 
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/ParallaxStars/Stars"]
 texture = ExtResource("2_otugp")
-offset = Vector2(2.08165e-12, -500)
+centered = false
+offset = Vector2(2.08165e-12, -680)
