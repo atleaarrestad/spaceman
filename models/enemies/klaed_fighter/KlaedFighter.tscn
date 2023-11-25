@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj11wfpkdyiek"]
+
+[ext_resource type="Texture2D" uid="uid://bhtqhwca6w6nu" path="res://sprites/enemies/klaed/base/Kla'ed - Fighter - Base.png" id="1_kx2bj"]
+[ext_resource type="Script" path="res://components/ShipMoveComponent.cs" id="2_gcbj7"]
+
+[node name="KlaedFighter" type="Node2D"]
+
+[node name="Hull" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_kx2bj")
+
+[node name="ShipMoveComponent" type="Node" parent="." node_paths=PackedStringArray("Actor")]
+script = ExtResource("2_gcbj7")
+Actor = NodePath("..")
+Velocity = Vector2(2.08165e-12, 50)

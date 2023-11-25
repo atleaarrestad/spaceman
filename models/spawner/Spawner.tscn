@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk4yeskiu6a78"]
+
+[ext_resource type="Script" path="res://models/spawner/Spawner.cs" id="1_2ab6p"]
+[ext_resource type="Script" path="res://components/SpawnerComponent.cs" id="1_l7n0y"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_2ab6p")
+
+[node name="SpawnerComponent" type="Node2D" parent="." node_paths=PackedStringArray("spawner", "SpawnTimer")]
+script = ExtResource("1_l7n0y")
+spawner = NodePath("..")
+SpawnTimer = NodePath("SpawnTimer")
+
+[node name="SpawnTimer" type="Timer" parent="SpawnerComponent"]
+
+[connection signal="timeout" from="SpawnerComponent/SpawnTimer" to="SpawnerComponent" method="_on_spawn_timer_timeout"]

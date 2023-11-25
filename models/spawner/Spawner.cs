@@ -1,8 +1,13 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Spawner : Node2D
 {
+
+	[Export]
+	public PackedScene[] EnemyTypes;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
