@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_a0a87")
-Speed = 100
+Speed = 100.0

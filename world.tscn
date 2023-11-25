@@ -14,5 +14,9 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 position = Vector2(320, 300)
 
 [node name="Spawner" parent="." instance=ExtResource("3_wumor")]
-position = Vector2(165, -70)
-EnemyTypes = [ExtResource("4_htjpu")]
+position = Vector2(2.08165e-12, -50)
+enemyTypes = Array[PackedScene]([ExtResource("4_htjpu")])
+spawnXmin = 20
+spawnXmax = 620
+spawnTimerMin = 1.0
+spawnTimerMax = 4.0

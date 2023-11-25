@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj11wfpkdyiek"]
+[gd_scene load_steps=5 format=3 uid="uid://cj11wfpkdyiek"]
 
 [ext_resource type="Texture2D" uid="uid://bhtqhwca6w6nu" path="res://sprites/enemies/klaed/base/Kla'ed - Fighter - Base.png" id="1_kx2bj"]
+[ext_resource type="Script" path="res://components/DestroyableNode2D.cs" id="1_ucbko"]
 [ext_resource type="Script" path="res://components/ShipMoveComponent.cs" id="2_gcbj7"]
+[ext_resource type="Script" path="res://components/OutOfBoundsDetectorComponent.cs" id="4_f5aca"]
 
 [node name="KlaedFighter" type="Node2D"]
+script = ExtResource("1_ucbko")
 
 [node name="Hull" type="Sprite2D" parent="."]
 rotation = 3.14159
@@ -13,3 +16,10 @@ texture = ExtResource("1_kx2bj")
 script = ExtResource("2_gcbj7")
 Actor = NodePath("..")
 Velocity = Vector2(2.08165e-12, 50)
+
+[node name="OutOfBoundsDetectorComponent" type="Node" parent="." node_paths=PackedStringArray("Actor")]
+script = ExtResource("4_f5aca")
+Actor = NodePath("..")
+YOutOfBounds = 360
+YUpper = 360
+CheckYUpperBounds = true
