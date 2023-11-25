@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ihtsuabnxxp4"]
+
+[ext_resource type="Texture2D" uid="uid://mnksls5cjnyy" path="res://sprites/asteroid/Asteroid 01 - Base.png" id="1_xppt6"]
+[ext_resource type="Script" path="res://components/ShipMoveComponent.cs" id="2_6x027"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpogb"]
+size = Vector2(25, 25)
+
+[node name="bullet" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wpogb")
+debug_color = Color(0.92549, 0.227451, 0.376471, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xppt6")
+
+[node name="ShipMoveComponent" type="Node" parent="." node_paths=PackedStringArray("Actor")]
+script = ExtResource("2_6x027")
+Actor = NodePath("..")
+Velocity = Vector2(0, -150)

@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [GlobalClass]
-public partial class EquipmentComponent : Node
+public partial class EquipmentComponent : Node2D
 {
 	[Export]
 	public EquipmentStats Stats { get; set; }
@@ -20,5 +20,8 @@ public partial class EquipmentComponent : Node
 	public void Activate()
 	{
 		GD.Print($"Gun with name: {Stats.Name} was activated");
+		var boolet = Stats.Projectile.Instantiate<Area2D>();
+		AddChild(boolet);
+
 	}
 }

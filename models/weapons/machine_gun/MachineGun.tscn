@@ -79,6 +79,6 @@ animation = &"fire"
 autoplay = "fire"
 frame_progress = 0.721485
 
-[node name="EquipmentComponent" type="Node" parent="."]
+[node name="EquipmentComponent" type="Node2D" parent="."]
 script = ExtResource("2_uku2h")
 Stats = ExtResource("3_an8kw")

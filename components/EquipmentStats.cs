@@ -6,9 +6,11 @@ using System.Collections.Generic;
 public partial class EquipmentStats : Resource
 {
 	[Export]
-	public string Name { get; set; } = "not set";
+	public string Name = "not set";
 	[Export]
-	public float Cooldown { get; set; } = 1f;
+	public float Cooldown = 1f;
 	[Export]
-	public float Damage { get; set; } = 1f;
+	public float Damage = 1f;
+	[Export]
+	public PackedScene Projectile;
 }
