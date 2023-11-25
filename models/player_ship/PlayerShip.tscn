@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bflojkj4lupox"]
+[gd_scene load_steps=11 format=3 uid="uid://bflojkj4lupox"]
 
 [ext_resource type="Texture2D" uid="uid://v487j0ibub81" path="res://sprites/player/hull/Main Ship - Base - Full health.png" id="1_v7axu"]
 [ext_resource type="Script" path="res://components/ShipMoveComponent.cs" id="2_ft5dy"]
 [ext_resource type="Script" path="res://components/ShipMoveInputComponent.cs" id="3_4tyh7"]
 [ext_resource type="Resource" uid="uid://wjj3p7xqr04" path="res://models/player_ship/ShipMoveStats.tres" id="4_06ck3"]
 [ext_resource type="Texture2D" uid="uid://doyxtfxgxmejq" path="res://sprites/player/engines/Main Ship - Engines - Base Engine.png" id="4_xkame"]
+[ext_resource type="Script" path="res://components/EquipmentContainer.cs" id="6_nnp7q"]
+[ext_resource type="PackedScene" uid="uid://dt264t7l40a2n" path="res://models/weapons/machine_gun/MachineGun.tscn" id="7_8vior"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jr37t"]
 animations = [{
@@ -52,3 +54,7 @@ sprite_frames = SubResource("SpriteFrames_jr37t")
 sprite_frames = SubResource("SpriteFrames_xp23u")
 animation = &"center"
 autoplay = "center"
+
+[node name="EquipmentContainer" type="Node" parent="."]
+script = ExtResource("6_nnp7q")
+WeaponScene = ExtResource("7_8vior")

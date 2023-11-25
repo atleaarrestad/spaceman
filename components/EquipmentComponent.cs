@@ -20,5 +20,6 @@ public partial class EquipmentComponent : Node
 	public void Fire()
 	{
 		Console.WriteLine("Gun has fired");
+		GD.Print("Gun has diddley doo scoobey doo fired");
 	}
 }

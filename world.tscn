@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bddqcyjairi2q"]
+[gd_scene load_steps=4 format=3 uid="uid://dalghsbvkpagq"]
 
 [ext_resource type="PackedScene" uid="uid://bflojkj4lupox" path="res://models/player_ship/PlayerShip.tscn" id="1_vidsd"]
 [ext_resource type="PackedScene" uid="uid://i88m55xyfn0e" path="res://models/background/Background.tscn" id="2_ypv62"]

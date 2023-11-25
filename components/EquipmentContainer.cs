@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 [GlobalClass]
 public partial class EquipmentContainer : Node
@@ -12,13 +13,12 @@ public partial class EquipmentContainer : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		/*
 		WeaponNode = WeaponScene.Instantiate();
 		AddChild(WeaponNode);
-        Console.WriteLine(WeaponNode.GetTree());
-        equipmentComponent = WeaponNode.GetNode<EquipmentComponent>("");
+		equipmentComponent = WeaponNode.GetNode<EquipmentComponent>("EquipmentComponent");
 		equipmentComponent.Fire();
-		*/
+
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
