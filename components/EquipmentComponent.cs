@@ -17,9 +17,8 @@ public partial class EquipmentComponent : Node
 
 	}
 
-	public void Fire()
+	public void Activate()
 	{
-		Console.WriteLine("Gun has fired");
-		GD.Print("Gun has diddley doo scoobey doo fired");
+		GD.Print($"Gun with name: {Stats.Name} was activated");
 	}
 }
