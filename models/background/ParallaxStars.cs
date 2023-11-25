@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ParallaxStars : ParallaxLayer
+public partial class ParallaxStars : Godot.ParallaxLayer
 {
 	int currentFrame = 0;
 
@@ -16,8 +16,7 @@ public partial class ParallaxStars : ParallaxLayer
 	{
 		currentFrame++;
 
-		var value = GenerateSinusoidalValue(currentFrame, 1200);
-		MotionOffset += new Vector2((float)value, 2);
+		MotionOffset += new Vector2(0, (float)0.3);
 	}
 
 	static double GenerateSinusoidalValue(int frameIndex, int numberOfPoints)

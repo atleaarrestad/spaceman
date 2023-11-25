@@ -35,13 +35,13 @@ public partial class ShipMoveInputComponent : Node
 
 		if (Input.IsKeyPressed(Key.W) && (Input.IsKeyPressed(Key.A) || Input.IsKeyPressed(Key.D)))
 		{
-			y *= (float)0.5;
-			x *= (float)0.5;
+			y *= (float)0.75;
+			x *= (float)0.75;
 		}
 		if (Input.IsKeyPressed(Key.S) && (Input.IsKeyPressed(Key.A) || Input.IsKeyPressed(Key.D)))
 		{
-			y *= (float)0.5;
-			x *= (float)0.5;
+			y *= (float)0.75;
+			x *= (float)0.75;
 		}
 
 		MoveComponent.Velocity = new Vector2(x, y);

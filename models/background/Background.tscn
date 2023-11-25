@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://i88m55xyfn0e"]
+
+[ext_resource type="Texture2D" uid="uid://ctf4mh0dhl2j0" path="res://sprites/background/Starry background  - Layer 01 - Solid colour.png" id="1_hytxm"]
+[ext_resource type="Texture2D" uid="uid://3b0auwfdpxwp" path="res://sprites/background/Starry background  - Layer 03 - Stars 2.png" id="2_otugp"]
+[ext_resource type="Script" path="res://models/background/ParallaxWave.cs" id="2_sngbp"]
+[ext_resource type="Texture2D" uid="uid://vu5oh27yeccr" path="res://sprites/background/Starry background  - Layer 02 - Shadows.png" id="3_876ei"]
+[ext_resource type="Script" path="res://models/background/ParallaxStars.cs" id="4_1dygy"]
+
+[node name="Background" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="StaticBackground" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+rotation = 1.5708
+texture = ExtResource("1_hytxm")
+offset = Vector2(2.08165e-12, -140)
+
+[node name="StaticBackground" type="Sprite2D" parent="ParallaxBackground/StaticBackground"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("1_hytxm")
+offset = Vector2(2.08165e-12, -500)
+
+[node name="ParallaxWave" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(720, 5760)
+script = ExtResource("2_sngbp")
+
+[node name="Wave" type="Sprite2D" parent="ParallaxBackground/ParallaxWave"]
+rotation = 1.5708
+texture = ExtResource("3_876ei")
+offset = Vector2(2.08165e-12, -140)
+
+[node name="Wave" type="Sprite2D" parent="ParallaxBackground/ParallaxWave/Wave"]
+texture = ExtResource("3_876ei")
+offset = Vector2(2.08165e-12, -500)
+
+[node name="ParallaxStars" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+motion_mirroring = Vector2(720, 5760)
+script = ExtResource("4_1dygy")
+
+[node name="Stars" type="Sprite2D" parent="ParallaxBackground/ParallaxStars"]
+rotation = 1.5708
+texture = ExtResource("2_otugp")
+offset = Vector2(2.08165e-12, -140)
+
+[node name="Stars" type="Sprite2D" parent="ParallaxBackground/ParallaxStars/Stars"]
+texture = ExtResource("2_otugp")
+offset = Vector2(2.08165e-12, -500)

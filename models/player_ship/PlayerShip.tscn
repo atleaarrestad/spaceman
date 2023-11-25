@@ -1,9 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bflojkj4lupox"]
+[gd_scene load_steps=9 format=3 uid="uid://bflojkj4lupox"]
 
 [ext_resource type="Texture2D" uid="uid://v487j0ibub81" path="res://sprites/player/hull/Main Ship - Base - Full health.png" id="1_v7axu"]
 [ext_resource type="Script" path="res://components/ShipMoveComponent.cs" id="2_ft5dy"]
 [ext_resource type="Script" path="res://components/ShipMoveInputComponent.cs" id="3_4tyh7"]
 [ext_resource type="Resource" uid="uid://wjj3p7xqr04" path="res://models/player_ship/ShipMoveStats.tres" id="4_06ck3"]
+[ext_resource type="Texture2D" uid="uid://doyxtfxgxmejq" path="res://sprites/player/engines/Main Ship - Engines - Base Engine.png" id="4_xkame"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jr37t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xkame")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4gms"]
 atlas = ExtResource("1_v7axu")
@@ -22,11 +34,6 @@ animations = [{
 
 [node name="Ship" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_xp23u")
-animation = &"center"
-autoplay = "center"
-
 [node name="ShipMoveComponent" type="Node" parent="." node_paths=PackedStringArray("Actor")]
 script = ExtResource("2_ft5dy")
 Actor = NodePath("..")
@@ -36,3 +43,12 @@ Velocity = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("3_4tyh7")
 MoveComponent = NodePath("../ShipMoveComponent")
 MoveStats = ExtResource("4_06ck3")
+
+[node name="Engine" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.08165e-12, 4)
+sprite_frames = SubResource("SpriteFrames_jr37t")
+
+[node name="Hull" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xp23u")
+animation = &"center"
+autoplay = "center"
