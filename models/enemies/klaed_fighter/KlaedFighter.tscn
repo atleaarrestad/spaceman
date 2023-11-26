@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj11wfpkdyiek"]
+[gd_scene load_steps=7 format=3 uid="uid://cj11wfpkdyiek"]
 
 [ext_resource type="Texture2D" uid="uid://bhtqhwca6w6nu" path="res://sprites/enemies/klaed/base/Kla'ed - Fighter - Base.png" id="1_kx2bj"]
-[ext_resource type="Script" path="res://components/DestroyableNode2D.cs" id="1_ucbko"]
+[ext_resource type="Script" path="res://components/DestroyableArea2D.cs" id="1_tbk0r"]
 [ext_resource type="Script" path="res://components/ShipMoveComponent.cs" id="2_gcbj7"]
 [ext_resource type="Script" path="res://components/OutOfBoundsDetectorComponent.cs" id="4_f5aca"]
+[ext_resource type="Script" path="res://models/enemies/klaed_fighter/CollisionDetection.cs" id="5_qphfo"]
 
-[node name="KlaedFighter" type="Node2D"]
-script = ExtResource("1_ucbko")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5k7t"]
+size = Vector2(24, 24)
+
+[node name="KlaedFighter" type="Area2D"]
+collision_layer = 512
+script = ExtResource("1_tbk0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j5k7t")
 
 [node name="Hull" type="Sprite2D" parent="."]
 rotation = 3.14159
@@ -20,6 +28,9 @@ Velocity = Vector2(2.08165e-12, 50)
 [node name="OutOfBoundsDetectorComponent" type="Node" parent="." node_paths=PackedStringArray("Actor")]
 script = ExtResource("4_f5aca")
 Actor = NodePath("..")
-YOutOfBounds = 360
 YUpper = 360
 CheckYUpperBounds = true
+
+[node name="CollisionDetection" type="Node" parent="." node_paths=PackedStringArray("Detectable")]
+script = ExtResource("5_qphfo")
+Detectable = NodePath("..")

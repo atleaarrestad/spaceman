@@ -7,6 +7,7 @@
 size = Vector2(25, 25)
 
 [node name="bullet" type="Area2D"]
+collision_layer = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wpogb")

@@ -10,52 +10,25 @@ public partial class SpawnerComponent : Node2D
 	public Spawner spawner;
 
 	[Export]
-	public Timer spawnTimer;
+	public Node2DPoolComponent nodePool;
 
-	private readonly List<DestroyableNode2D> spawnPool = new();
+	public Timer spawnTimer = new();
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		GD.Randomize();
 
 		spawnTimer.OneShot = true;
+		spawnTimer.Timeout += OnTimeout;
+
+		AddChild(spawnTimer);
+
 		spawnTimer.Start(GetSpawnTimer());
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public void OnTimeout()
 	{
-	}
-
-	private void Spawn()
-	{
-		DestroyableNode2D node;
-
-		if (spawnPool.Count > 0)
-		{
-			node = spawnPool[0];
-			spawnPool.RemoveAt(0);
-		}
-		else
-		{
-			var scene = spawner.enemyTypes[GetEnemyIndex()];
-			node = scene.Instantiate<DestroyableNode2D>();
-			node.OnDestroy += () =>
-			{
-				RemoveChild(node);
-				spawnPool.Add(node);
-			};
-		}
-
-		node.Position = new Vector2(GetSpawnPosition(), Position.Y);
-
-		AddChild(node);
-	}
-
-	public void _on_spawn_timer_timeout()
-	{
-		Spawn();
+		nodePool.Spawn(new Vector2(GetSpawnPosition(), Position.Y));
 		spawnTimer.Start(GetSpawnTimer());
 	}
 

@@ -1,11 +1,10 @@
 using Godot;
-using System;
 
 
 [GlobalClass]
 public partial class OutOfBoundsDetectorComponent : Node
 {
-	[Export] public DestroyableNode2D Actor;
+	[Export] public DestroyableArea2D Actor;
 
 	[Export] public int YLower = 0;
 	[Export] public int YUpper = 0;
