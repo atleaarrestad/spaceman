@@ -122,7 +122,7 @@ animations = [{
 [sub_resource type="Resource" id="Resource_ln7fy"]
 script = ExtResource("3_35e2p")
 Name = "Laser Gun"
-Cooldown = 1.0
+Cooldown = 1.5
 Damage = 10.0
 Projectile = ExtResource("3_usb3k")
 
