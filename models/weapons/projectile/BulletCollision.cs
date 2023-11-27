@@ -1,25 +1,34 @@
 using Godot;
-using System;
 
 
 [GlobalClass]
 public partial class BulletCollision : Node
 {
-	[Export]
-	public DestroyableArea2D Detectable;
+	[Export] public Area2D Detectable;
+	[Export] public Godot.AnimatedSprite2D Animation;
 
-	[Export]
-	public Godot.AnimatedSprite2D Animation;
+	private bool destroyed = false;
 
 	public override void _Ready()
 	{
-		Detectable.AreaEntered += (node) =>
+		Detectable.AreaEntered += OnAreaEntered;
+	}
+
+	public void OnAreaEntered(Area2D node)
+	{
+		if (node is not EnemyShip)
+			return;
+
+		if (!destroyed)
 		{
-			Animation.AnimationFinished += () =>
-			{
-				((DestroyableArea2D)node).Destroy();
-			};
+			Animation.AnimationFinished += OnAnimationFinished;
 			Animation.Play("explode");
-		};
+			destroyed = true;
+		}
+	}
+
+	public void OnAnimationFinished()
+	{
+		Detectable.QueueFree();
 	}
 }

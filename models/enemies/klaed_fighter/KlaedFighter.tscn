@@ -1,25 +1,114 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj11wfpkdyiek"]
+[gd_scene load_steps=19 format=3 uid="uid://cj11wfpkdyiek"]
 
+[ext_resource type="Script" path="res://models/enemies/klaed_fighter/KlaedFighter.cs" id="1_gmtqg"]
 [ext_resource type="Texture2D" uid="uid://bhtqhwca6w6nu" path="res://sprites/enemies/klaed/base/Kla'ed - Fighter - Base.png" id="1_kx2bj"]
-[ext_resource type="Script" path="res://components/DestroyableArea2D.cs" id="1_tbk0r"]
 [ext_resource type="Script" path="res://components/ShipMoveComponent.cs" id="2_gcbj7"]
+[ext_resource type="Texture2D" uid="uid://chljm6qjm62yr" path="res://sprites/enemies/klaed/destruction/Kla'ed - Fighter - Destruction.png" id="3_wpmyg"]
 [ext_resource type="Script" path="res://components/OutOfBoundsDetectorComponent.cs" id="4_f5aca"]
-[ext_resource type="Script" path="res://models/enemies/klaed_fighter/CollisionDetection.cs" id="5_qphfo"]
+[ext_resource type="Script" path="res://components/EnemyShipCollider.cs" id="6_xs35q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5k7t"]
 size = Vector2(24, 24)
 
-[node name="KlaedFighter" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjgbf"]
+atlas = ExtResource("1_kx2bj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb3my"]
+atlas = ExtResource("3_wpmyg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkxid"]
+atlas = ExtResource("3_wpmyg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aimo"]
+atlas = ExtResource("3_wpmyg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm8ax"]
+atlas = ExtResource("3_wpmyg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2f7i"]
+atlas = ExtResource("3_wpmyg")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb5rj"]
+atlas = ExtResource("3_wpmyg")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofd4g"]
+atlas = ExtResource("3_wpmyg")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnjbq"]
+atlas = ExtResource("3_wpmyg")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbpph"]
+atlas = ExtResource("3_wpmyg")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gf4pt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjgbf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb3my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkxid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aimo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm8ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2f7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb5rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofd4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnjbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbpph")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 10.0
+}]
+
+[node name="KlaedFighter" type="Area2D" node_paths=PackedStringArray("ShipSprite")]
 collision_layer = 512
 collision_mask = 512
-script = ExtResource("1_tbk0r")
+script = ExtResource("1_gmtqg")
+ShipSprite = NodePath("ShipSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j5k7t")
 
-[node name="Hull" type="Sprite2D" parent="."]
+[node name="ShipSprite" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
-texture = ExtResource("1_kx2bj")
+sprite_frames = SubResource("SpriteFrames_gf4pt")
+animation = &"explode"
+autoplay = "default"
+frame = 4
+frame_progress = 0.483367
 
 [node name="ShipMoveComponent" type="Node" parent="." node_paths=PackedStringArray("Actor")]
 script = ExtResource("2_gcbj7")
@@ -32,6 +121,6 @@ Actor = NodePath("..")
 YUpper = 360
 CheckYUpperBounds = true
 
-[node name="CollisionDetection" type="Node" parent="." node_paths=PackedStringArray("Detectable")]
-script = ExtResource("5_qphfo")
+[node name="EnemyShipCollider" type="Node" parent="." node_paths=PackedStringArray("Detectable")]
+script = ExtResource("6_xs35q")
 Detectable = NodePath("..")

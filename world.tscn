@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bflojkj4lupox" path="res://models/player_ship/PlayerShip.tscn" id="1_vidsd"]
 [ext_resource type="PackedScene" uid="uid://i88m55xyfn0e" path="res://models/background/Background.tscn" id="2_ypv62"]
-[ext_resource type="PackedScene" uid="uid://bk4yeskiu6a78" path="res://models/spawner/Spawner.tscn" id="3_wumor"]
 [ext_resource type="PackedScene" uid="uid://cj11wfpkdyiek" path="res://models/enemies/klaed_fighter/KlaedFighter.tscn" id="4_htjpu"]
+[ext_resource type="Script" path="res://components/SpawnerComponent.cs" id="5_c8abo"]
 
 [node name="World" type="Node2D"]
 
@@ -13,10 +13,10 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 [node name="Ship" parent="." instance=ExtResource("1_vidsd")]
 position = Vector2(320, 300)
 
-[node name="Spawner" parent="." instance=ExtResource("3_wumor")]
-position = Vector2(2.08165e-12, -50)
-enemyTypes = Array[PackedScene]([ExtResource("4_htjpu")])
-spawnXmin = 20
-spawnXmax = 620
-spawnTimerMin = 1.0
-spawnTimerMax = 4.0
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("5_c8abo")
+spawnTypes = Array[PackedScene]([ExtResource("4_htjpu")])
+StartPosition = 20
+EndPosition = 620
+TimerMinimum = 1.0
+TimerMaximum = 3.0

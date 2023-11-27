@@ -1,16 +1,15 @@
 using System;
-using System.Collections.Generic;
 using Godot;
 
 
 [GlobalClass]
 public partial class SpawnerComponent : Node2D
 {
-	[Export]
-	public Spawner spawner;
-
-	[Export]
-	public Node2DPoolComponent nodePool;
+	[Export] public PackedScene[] spawnTypes = default;
+	[Export] public int StartPosition = 0;
+	[Export] public int EndPosition = 0;
+	[Export] public double TimerMinimum = 5.0;
+	[Export] public double TimerMaximum = 10.0;
 
 	public Timer spawnTimer = new();
 
@@ -28,23 +27,27 @@ public partial class SpawnerComponent : Node2D
 
 	public void OnTimeout()
 	{
-		nodePool.Spawn(new Vector2(GetSpawnPosition(), Position.Y));
+		var scene = spawnTypes[GetSpawnTypeIndex()];
+		var node = scene.Instantiate<Node2D>();
+		node.Position = new Vector2(GetSpawnPosition(), Position.Y);
+		AddChild(node);
+
 		spawnTimer.Start(GetSpawnTimer());
 	}
 
-	private int GetEnemyIndex()
+	private int GetSpawnTypeIndex()
 	{
-		return (int)GD.Randi() % Math.Min(1, spawner.enemyTypes.Length);
+		return (int)GD.Randi() % Math.Min(1, spawnTypes.Length);
 	}
 
 	private double GetSpawnTimer()
 	{
-		return GD.RandRange(spawner.spawnTimerMin, spawner.spawnTimerMax);
+		return GD.RandRange(TimerMinimum, TimerMaximum);
 	}
 
 	private float GetSpawnPosition()
 	{
-		return GD.RandRange(spawner.spawnXmin, spawner.spawnXmax);
+		return GD.RandRange(StartPosition, EndPosition);
 	}
 
 }

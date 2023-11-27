@@ -3,16 +3,15 @@ using System;
 
 
 [GlobalClass]
-public partial class CollisionDetection : Node
+public partial class EnemyShipCollider : Node
 {
-	[Export]
-	public Area2D Detectable;
+	[Export] public EnemyShip Detectable;
 
 	public override void _Ready()
 	{
 		Detectable.AreaEntered += (node) =>
 		{
-			GD.Print("NODE ENTERED SOMETHING");
+			Detectable.Collide(node);
 		};
 	}
 }
