@@ -20,21 +20,29 @@ public partial class Node2DPoolComponent : Node
 	{
 		Node2D node;
 
-		if (spawnPool.Count > 0)
-		{
-			node = spawnPool[0];
-			spawnPool.RemoveAt(0);
-		}
-		else
-		{
-			node = Spawnable.Instantiate<Node2D>();
+		//if (spawnPool.Count > 0)
+		//{
+		//	node = spawnPool[0];
+		//	spawnPool.RemoveAt(0);
+		//}
+		//else
+		//{
+		//	node = Spawnable.Instantiate<Node2D>();
 
-			node.Connect(signal, Callable.From(() =>
-			{
-				SpawnTarget.RemoveChild(node);
-				spawnPool.Add(node);
-			}));
-		}
+		//	node.Connect(signal, Callable.From(() =>
+		//	{
+		//		SpawnTarget.RemoveChild(node);
+		//		spawnPool.Add(node);
+		//	}));
+		//}
+
+		node = Spawnable.Instantiate<Node2D>();
+		node.Connect(signal, Callable.From(() =>
+		{
+			SpawnTarget.RemoveChild(node);
+			node.Owner = null;
+			node.Free();
+		}));
 
 		node.Position = position;
 

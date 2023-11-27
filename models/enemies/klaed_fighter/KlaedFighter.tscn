@@ -11,6 +11,7 @@ size = Vector2(24, 24)
 
 [node name="KlaedFighter" type="Area2D"]
 collision_layer = 512
+collision_mask = 512
 script = ExtResource("1_tbk0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
